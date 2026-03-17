@@ -1,0 +1,35 @@
+public class Kata {
+
+    public static String rot13(String str) {
+        StringBuilder rot13 = new StringBuilder();
+
+        for (int i = 0; i < str.length(); i++) {
+            rot13.append(rotatedLetter(str.charAt(i)));
+        }
+
+        return rot13.toString();
+    }
+
+    public static Character rotatedLetter(char c) {
+        if (Character.isLetter(c)) {
+            int shiftedPos = (getAlphabetPos(c) + 13) % 26;
+
+            if (c > 96 && c < 123) {
+                return (char) (shiftedPos + 97);
+            }
+
+            return (char) (shiftedPos + 65);
+        }
+
+        return c;
+    }
+
+    public static int getAlphabetPos(char c) {
+        if (c > 96 && c < 123) {
+            return c - 97;
+        }
+
+        return c - 65;
+    }
+  
+}  
