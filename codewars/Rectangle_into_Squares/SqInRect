@@ -1,0 +1,29 @@
+import java.util.List;
+import java.util.ArrayList; 
+public class SqInRect {
+	
+	public static List<Integer> sqInRect(int lng, int wdth) {
+		if(lng == wdth) return null;
+    else {
+      List<Integer> list = new ArrayList<>();
+      
+      while(true) {
+       if(lng < wdth) {
+        list.add(lng);
+        wdth-=lng;
+         continue;
+       }
+        
+        else if (lng > wdth){
+        list.add(wdth);
+        lng-=wdth;
+          continue;
+        }
+        
+          list.add(lng);
+          break;
+      }
+      return list;
+    }
+	}
+}
